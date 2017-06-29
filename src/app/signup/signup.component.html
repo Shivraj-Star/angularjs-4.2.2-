@@ -1,0 +1,62 @@
+<div class="col-md-6 col-md-offset-3 fc-card">
+  <div class="page-header text-center"><b>Signup Form</b></div>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
+    <div class="col-md-12 form-group">
+      <label for="">Name</label>
+      <input type="text" class="form-control" formControlName="name" placeholder="Full name" autofocus="" />
+      <div *ngIf="signupForm.controls.name.dirty && signupForm.controls.name.invalid; else falsyTemplate">
+        <div class="pull-right text-danger" [hidden]="!signupForm.controls.name.errors?.required"><b>Required</b></div>
+        <div class="pull-right text-danger" [hidden]="!signupForm.controls.name.errors?.minlength"><b>minlength 4</b></div>
+        <div class="pull-right text-danger" [hidden]="!signupForm.controls.name.errors?.maxlength"><b>maxlength 10</b></div>
+      </div>
+      <ng-template #falsyTemplate><b class="pull-right text-success">Valid</b></ng-template>
+
+    </div>
+
+    <div class="col-md-12 form-group">
+      <label for="">Email</label>
+      <input type="text" class="form-control" formControlName="email" placeholder="Email" />
+      <div *ngIf="signupForm.controls.email.dirty && signupForm.controls.email.invalid; else falsyTemplate">
+        <div class="pull-right text-danger" [hidden]="!signupForm.controls.email.errors?.required"><b>Required</b></div>
+        <div class="pull-right text-danger" [hidden]="!signupForm.controls.email.errors?.email"><b>Invalid email</b></div>
+      </div>
+      <ng-template #falsyTemplate><b class="pull-right text-success">Valid</b></ng-template>
+    </div>
+
+    <div class="col-md-12 form-group">
+      <label for="">Password</label>
+      <input type="password" class="form-control" formControlName="password" placeholder="Password" />
+      <div *ngIf="signupForm.controls.password.dirty && signupForm.controls.password.invalid; else falsyTemplate">
+        <div class="pull-right text-danger" [hidden]="!signupForm.controls.password.errors?.required"><b>Required</b></div>
+      </div>
+      <ng-template #falsyTemplate><b class="pull-right text-success">Valid</b></ng-template>
+    </div>
+
+    <div class="col-md-12 form-group">
+      <label for="">City</label>
+      <input type="text" class="form-control" formControlName="city" placeholder="City" />
+      <div *ngIf="signupForm.controls.city.dirty && signupForm.controls.city.invalid; else falsyTemplate">
+        <div class="pull-right text-danger" [hidden]="!signupForm.controls.city.errors?.required"><b>Required</b></div>
+      </div>
+      <ng-template #falsyTemplate><b class="pull-right text-success">Valid</b></ng-template>
+    </div>
+
+    <div class="col-md-12 form-group">
+      <label for="">Domain</label>
+      <select class="form-control" formControlName="domain">
+          <option [ngValue] ="default"> -- select Domain --</option>
+          <option *ngFor="let tech of technologies" [ngValue]="tech">{{tech}}</option>
+        </select>
+      <div *ngIf="signupForm.controls.domain.dirty && signupForm.controls.domain.invalid; else falsyTemplate">
+        <div class="pull-right text-danger" [hidden]="!signupForm.controls.domain.errors?.required"><b>Required</b></div>
+      </div>
+      <ng-template #falsyTemplate><b class="pull-right text-success">Valid</b></ng-template>
+    </div>
+
+    <div class="col-md-12 text-center">
+      <button class="btn btn-info" [disabled]="!signupForm.valid" type="submit">Save</button>
+      <button class="btn btn-danger" (click)="clear()">Clear</button>
+                <button class="btn btn-link pull-right" (click)="login()">Redirect to login</button>
+    </div>
+  </form>
+</div>

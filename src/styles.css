@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+body {
+  background-color: rgba(204, 204, 204, 0.8);
+}
+
+.fc-card {
+  background: white;
+  padding: 20px;
+  box-shadow: 1px 1px 12px #676767;
+  border-radius: 8px;
+}
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #969696;
+}
+    

@@ -1,10 +1,10 @@
-import { Angular4Page } from './app.po';
+import { Angular4starPage } from './app.po';
 
-describe('angular4 App', () => {
-  let page: Angular4Page;
+describe('angular4star App', () => {
+  let page: Angular4starPage;
 
   beforeEach(() => {
-    page = new Angular4Page();
+    page = new Angular4starPage();
   });
 
   it('should display welcome message', () => {

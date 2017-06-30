@@ -1,6 +1,6 @@
-# Angular4
+# Angular4star
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
 
 ## Development server
 

@@ -3,7 +3,7 @@
   <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
     <div class="col-md-12 form-group">
       <label for="">Name</label>
-      <input type="text" class="form-control" formControlName="name" placeholder="Full name" autofocus="" />
+      <input type="text" class="form-control" formControlName="name" placeholder="Full name" autofocus />
       <div *ngIf="signupForm.controls.name.dirty && signupForm.controls.name.invalid; else falsyTemplate">
         <div class="pull-right text-danger" [hidden]="!signupForm.controls.name.errors?.required"><b>Required</b></div>
         <div class="pull-right text-danger" [hidden]="!signupForm.controls.name.errors?.minlength"><b>minlength 4</b></div>
@@ -58,5 +58,5 @@
       <button class="btn btn-danger" (click)="clear()">Clear</button>
     </div>
   </form>
-<button class="btn btn-link pull-right" (click)="login()">Redirect to login</button>
+<a routerLink="/login"><button class="btn btn-link pull-right" (click)="loginlink()">Redirect to login</button></a>
 </div>

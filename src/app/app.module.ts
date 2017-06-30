@@ -21,7 +21,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     HomepageComponent
   ],
   imports: [
-    BrowserModule, routing, FormsModule, ReactiveFormsModule, HttpModule, JsonpModule
+    BrowserModule,FormsModule, ReactiveFormsModule, routing,  HttpModule, JsonpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

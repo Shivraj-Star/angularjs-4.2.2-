@@ -14,4 +14,4 @@ export const routes: Routes = [
 ]
 //When making a redirect it is important to tell the router how to match the URL.
 //There are two options for that - full and prefix  matches URL prefixed with the redirect path.
-export const routing = RouterModule.forRoot(routes)
+export const AppRoutingModule = RouterModule.forRoot(routes)

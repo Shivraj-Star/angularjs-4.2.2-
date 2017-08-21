@@ -1,3 +1,8 @@
-.fc-nav-shadows{
-    box-shadow: 1px 7px 12px #ccc;
+.fc-nav-shadows {
+  box-shadow: 1px 7px 12px #ccc;
+}
+
+.nav-active {
+  color: #000;
+  font-weight: bold;
 }

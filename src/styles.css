@@ -17,4 +17,8 @@ body {
   margin: 40px 0 20px;
   border-bottom: 1px solid #969696;
 }
-    
+
+.fc-top-17 {
+  top: 17px;
+  position: relative;
+}

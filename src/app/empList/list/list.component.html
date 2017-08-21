@@ -1,0 +1,20 @@
+<div class="col-md-8 col-md-offset-2 fc-card">
+  <div class="page-header col-md-12 text-info"><b>Employee List</b></div>
+    <div class="list-group col-md-12">
+      <div class="list-group-item  col-md-12" *ngFor="let item of userList;let index = index">
+        <span class="col-md-3">
+          <img class="fc-top-17" src="http://www.bryonythomas.com/wp-content/uploads/2012/08/HiRes.jpg" alt="Users" width="75">
+        </span>
+        <span class="col-md-5">
+          <div class="col-md-12 form-group"><b class="text-primary">ID :</b> {{item.id}}</div>
+          <div class="col-md-12 form-group"><b class="text-primary">Name :</b> {{item.name}}</div>
+          <div class="col-md-12 form-group"><b class="text-primary">Designation :</b> {{item.designation}}</div>
+          <div class="col-md-12 form-group"><b class="text-primary" *ngIf="item.cell">Cell :</b> {{item.cell}}</div>
+        </span>
+        <span class="col-md-4">
+          <button class="btn btn-sm btn-info fc-top-17 form-group" (click)="explore(item)">Explore</button>
+          <button class="btn btn-sm btn-danger fc-top-17" (click)="remove(index)" >Remove</button>
+        </span>
+      </div>
+    </div>
+</div>

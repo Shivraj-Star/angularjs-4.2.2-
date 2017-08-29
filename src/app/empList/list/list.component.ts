@@ -16,9 +16,7 @@ export class ListComponent implements OnInit {
   constructor(
     public empstore: EmpstoreService,
     private router: Router
-  ) {
-    // this.empstore = empstore;
-  }
+  ) {}
 
   ngOnInit() {
     this.userList = this.empstore.fetchEmpList();
@@ -29,6 +27,6 @@ export class ListComponent implements OnInit {
   }
 
   explore(selectedItem) {
-    this.router.navigate(['/detail', selectedItem.id],{ queryParams: selectedItem})
+    this.router.navigate(['list','detail', selectedItem.id],{ queryParams: selectedItem})
   }
 }

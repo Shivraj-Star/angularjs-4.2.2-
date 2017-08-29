@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 
 interface User {
   id: number;
@@ -11,38 +13,27 @@ interface User {
 @Injectable()
 export class EmpstoreService {
   public users;
+  private list = 'http://localhost:3002/empList';
 
-  constructor() {
-   }
-
-  getList() {
-     let users: User[] = [
-      {
-        id: 10502,
-        name: "Balwant padwal",
-        cell: "9764936555",
-        designation: "Associate"
-      },
-      {
-        id: 14502,
-        name: "Nikhil Madhamshettiwar",
-        designation: "Manager"
-      },
-      {
-        id: 11502,
-        name: "Ramakant Dhurpate",
-        cell: "984xxxxx2",
-        designation: "Manager"
-      },
-      {
-        id: 10502,
-        name: "fahim patel",
-        cell: "96xxxxxxx51",
-        designation: "Senior"
-      }
-    ];
-    return users;
+  constructor(public http: Http) {
 
   }
 
+  fetchEmpLists(): Observable<User[]> {
+    return this.http.get(this.list)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+
+  fetchEmpList(): Observable<any> {
+    return Observable.create(observer => {
+      this.http.get(this.list)
+        .map(res => res.json())
+        .subscribe((data) => {
+          observer.next(data.empList);
+          observer.complete();
+        });
+    });
+  }
 }

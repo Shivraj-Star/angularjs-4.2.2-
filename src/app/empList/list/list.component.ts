@@ -8,9 +8,10 @@ import { Router} from '@angular/router';
   styleUrls: ['./list.component.css'],
 
 })
+
 export class ListComponent implements OnInit {
 
-  public userList;
+  public userList:any;
 
   constructor(
     public empstore: EmpstoreService,
@@ -20,7 +21,7 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userList = this.empstore.getList();
+    this.userList = this.empstore.fetchEmpList();
   }
 
   remove(index): void {
@@ -29,7 +30,5 @@ export class ListComponent implements OnInit {
 
   explore(selectedItem) {
     this.router.navigate(['/detail', selectedItem.id],{ queryParams: selectedItem})
-
-    // this.router.navigate(['/detail', selectedItem.id]);
   }
 }
